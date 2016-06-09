@@ -8,9 +8,9 @@ To build this Docker container:
 To run:
 
     docker run -d 
-      -h <Host name> -p 443:443 
+      -h <host name> -p 443:443 
       -v <CEDAR source directory>:/srv/cedar 
-      -v <Host SSL certificates>:/srv/certificates 
+      -v <host SSL certificates>:/srv/certificates 
       --name cedar_nginx cedar/nginx:0.1.0 
 
 e.g.,
@@ -25,13 +25,11 @@ To see that the container is running:
 
     docker ps
 
+Map the host name to the IP address in ```/etc/hosts/```.
+
 To test connectivity to Nginx server in container:
 
-    curl -i -vvv https://<Docker host IP>
-
-e.g.,
-
-    curl -i -vvv https://192.168.99.100/
+    curl -i -vvv https://<host name>
 
 To look at the container logs:
 
