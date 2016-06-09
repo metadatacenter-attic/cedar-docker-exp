@@ -7,8 +7,11 @@ MAINTAINER CEDAR Team "metadatacenter@gmail.com"
 # Point yum to an Nginx repository
 COPY nginx.repo /etc/yum.repos.d/nginx.repo
 
-# Make CEDAR hone directory
+# Make CEDAR home directory
 RUN mkdir -p /srv/cedar
+
+# Make CEDAR home the default work directory
+WORKDIR /src/cedar
 
 # Mount a volume containing the host SSL certificate
 VOLUME [ "/srv/certificates/" ]

@@ -4,7 +4,17 @@ To build this Docker container:
 
 To run:
 
-  docker run -d -p 8080:80 -v /Users/moconnor/workspace/cedar:/srv/cedar -v /Users/moconnor/workspace/conf/certificates/metadatacenter.net:/srv/certificates --name cedar_nginx cedar/nginx:0.1.0 
+  docker run -d -p 8080:80 
+    -v <CEDAR source directory>:/srv/cedar 
+    -v <Host SSL certificates>:/srv/certificates 
+    --name cedar_nginx cedar/nginx:0.1.0 
+
+e.g.,
+
+  docker run -d -p 8080:80 
+    -v /Users/moconnor/workspace/cedar:/srv/cedar 
+    -v /Users/moconnor/workspace/conf/certificates/metadatacenter.net:/srv/certificates 
+    --name cedar_nginx cedar/nginx:0.1.0 
 
 To look at container logs:
 
