@@ -8,7 +8,7 @@ To build this Docker container:
 To run:
 
     docker run -d 
-      -h <Host> -p 443:443 
+      -h <Host name> -p 443:443 
       -v <CEDAR source directory>:/srv/cedar 
       -v <Host SSL certificates>:/srv/certificates 
       --name cedar_nginx cedar/nginx:0.1.0 
@@ -26,6 +26,10 @@ To see that the container is running:
     docker ps
 
 To test connectivity to Nginx server in container:
+
+    curl -i -vvv https://<Docker host IP>
+
+e.g.,
 
     curl -i -vvv https://192.168.99.100/
 
@@ -45,6 +49,10 @@ To look at Nginx log when inside container:
 
     tail -f /var/log/nginx/access.log
     tail -f /var/log/nginx/error.log
+
+To stop the container:
+
+    docker stop cedar_nginx
 
 To remove container:
 
