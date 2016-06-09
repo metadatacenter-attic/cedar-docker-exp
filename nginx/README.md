@@ -25,11 +25,11 @@ To see that the container is running:
 
     docker ps
 
-Map the host name to the IP address in ```/etc/hosts/```.
+Use DOCKER_HOST environment variable to find the Docker server IP address and map the host name to this IP address in ```/etc/hosts/```.
 
 To test connectivity to Nginx server in container:
 
-    curl -i -vvv https://<host name>
+    curl -i -vvv https://<host name>/
 
 To look at the container logs:
 
