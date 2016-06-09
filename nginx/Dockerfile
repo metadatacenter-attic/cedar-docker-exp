@@ -13,21 +13,25 @@ RUN mkdir -p /srv/cedar
 # Make CEDAR home the default work directory
 WORKDIR /src/cedar
 
-# Mount a volume containing the host SSL certificate
+# Mount a volume containing the host SSL certificate 
+# The -h flag should be given to the container with a host matching the certificate
 VOLUME [ "/srv/certificates/" ]
 
 # Mount a volume containing the CEDAR code 
+# Nginx is expecting an index.html file in the subdirectory ./cedar-template-editor/app
 VOLUME [ "/srv/cedar/" ]
 
 #Install Nginx
 RUN yum -y install nginx
 
 # Copy Nginx configuration file
+# For the moment it hard code the host *.metadatacenter.net
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 # Run Nginx
 ENTRYPOINT "/usr/sbin/nginx" -g "daemon off;"
 
-# Expose port 80
-EXPOSE 80
+# Expose port 443
+EXPOSE 443
 
+# Test running container with curl https://<host>
