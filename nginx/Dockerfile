@@ -11,7 +11,7 @@ COPY nginx.repo /etc/yum.repos.d/nginx.repo
 RUN mkdir -p /srv/cedar
 
 # Mount a volume containing the host SSL certificate
-VOLUME [ "/etc/letsencrypt/live/metadatacenter.net/" ]
+VOLUME [ "/srv/certificates/" ]
 
 # Mount a volume containing the CEDAR code 
 VOLUME [ "/srv/cedar/" ]
