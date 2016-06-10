@@ -13,7 +13,6 @@ To run:
       -v <host SSL certificates>:/srv/certificates 
       --name cedar-nginx metadatacenter/cedar-nginx:0.1.0
 
-
 e.g.,
 
     docker run -d \
@@ -26,9 +25,10 @@ To see that the container is running:
 
     docker ps
 
-Use DOCKER_HOST environment variable to find the Docker server IP address and map the host name to this IP address in ```/etc/hosts/```.
+Use DOCKER_HOST environment variable to find the Docker server IP address and map the host name to this 
+IP address in the host machine's ```/etc/hosts/``` file.
 
-To test connectivity to Nginx server in container:
+To test connectivity to the Nginx server in the container:
 
     curl -i -vvv https://<host name>/
 
@@ -36,7 +36,7 @@ To look at the container logs:
 
     docker logs cedar-nginx
 
-To look at container ports:
+To look at the container ports:
 
     docker port cedar-nginx 
 
@@ -53,7 +53,7 @@ To stop the container:
 
     docker stop cedar-nginx
 
-To remove container:
+To remove the container:
 
     docker rm cedar-nginx
 
