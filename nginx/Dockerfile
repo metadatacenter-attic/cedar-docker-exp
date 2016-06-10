@@ -25,8 +25,10 @@ VOLUME [ "/srv/cedar/" ]
 RUN yum -y install nginx
 
 # Copy Nginx configuration file
-# For the moment it hard code the host *.metadatacenter.net
 COPY default.conf /etc/nginx/conf.d/default.conf
+
+# Replace <HOSTNAME> in Nginx configuration file with actual host name
+RUN sed -i -e "s/<HOSTNAME>/${HOSTNAME}/g" /etc/nginx/conf.d/default.conf
 
 # Run Nginx
 ENTRYPOINT "/usr/sbin/nginx" -g "daemon off;"
