@@ -5,12 +5,8 @@ FROM centos:latest
 MAINTAINER CEDAR Team "metadatacenter@gmail.com"
 
 ENV CEDAR_HOME /srv/cedar
-ENV CEDAR_HOME /srv/cedar
 ENV CEDAR_APP_HOME ${CEDAR_HOME}/cedar-template-editor/app
 ENV CEDAR_CERTIFICATES_PATH /srv/certificates
-
-# Point yum to an Nginx repository
-COPY nginx.repo /etc/yum.repos.d/nginx.repo
 
 # Make CEDAR home directory
 RUN mkdir -p ${CEDAR_HOME}
@@ -18,8 +14,11 @@ RUN mkdir -p ${CEDAR_HOME}
 # Make CEDAR home the default work directory
 WORKDIR ${CEDAR_HOME}
 
+# Point yum to an Nginx repository
+COPY nginx.repo /etc/yum.repos.d/nginx.repo
+
 # Mount a volume containing the CEDAR code 
-# Nginx is expecting an index.html file in the subdirectory ./cedar-template-editor/app
+# Nginx is expecting an index.html file in the subdirectory ${CEDAR_APP_HOME} directory.
 VOLUME [ ${CEDAR_HOME} ]
 
 # Mount a volume containing the host SSL certificates

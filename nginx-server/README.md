@@ -11,7 +11,7 @@ valid for the subdomains ```auth```, ```folder```, ```repo```, ```resource```, `
 
 To build this Docker container:
 
-    docker build -t="metadatacenter/cedar-nginx:0.1.0" .
+    docker build -t="metadatacenter/cedar-nginx-server:0.1.0" .
 
 To run:
 
@@ -19,7 +19,7 @@ To run:
       -h <host name> -p 443:443 
       -v <CEDAR source directory>:/srv/cedar 
       -v <host SSL certificates>:/srv/certificates 
-      --name cedar-nginx metadatacenter/cedar-nginx:0.1.0
+      --name cedar-nginx metadatacenter/cedar-nginx-server:0.1.0
 
 The host name must have matching SSL certificates in the ```host SSL certificates``` directory. 
 
@@ -29,7 +29,7 @@ e.g.,
       -h cedar.metadatacenter.net -p 443:443 \
       -v /Users/bob/workspace/cedar:/srv/cedar \
       -v /Users/bob/private/certificates/metadatacenter.net:/srv/certificates \
-      --name cedar-nginx metadatacenter/cedar-nginx:0.1.0
+      --name cedar-nginx metadatacenter/cedar-nginx-server:0.1.0
 
 To see that the container is running:
 
@@ -44,15 +44,15 @@ To test connectivity to the Nginx server in the container:
 
 To look at the container logs:
 
-    docker logs cedar-nginx
+    docker logs cedar-nginx-server
 
 To look at the container ports:
 
-    docker port cedar-nginx 
+    docker port cedar-nginx-server 
 
 To create a shell inside the running container:
 
-    docker exec -it cedar-nginx /bin/bash
+    docker exec -it cedar-nginx-server /bin/bash
 
 To look at Nginx log when inside container:
 
@@ -61,10 +61,10 @@ To look at Nginx log when inside container:
 
 To stop the container:
 
-    docker stop cedar-nginx
+    docker stop cedar-nginx-server
 
 To remove the container:
 
-    docker rm cedar-nginx
+    docker rm cedar-nginx-server
 
 
