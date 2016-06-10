@@ -5,8 +5,7 @@ This Docker container runs CEDAR's Nginx server. The host machine must have a di
 containing the CEDAR code base and a directory containing SSL certificates, both
 of which are mounted as volumes by the container when it runs. The SSL
 certificates must match the ```cedar```-prepended host name given to the machine and also be 
-valid for the subdomains ```auth```, ```folder```,```repo```,```resource```,```schema```,
-```template```,```terminology```,```valuerecommender```. 
+valid for the subdomains ```auth```, ```folder```, ```repo```, ```resource```, ```schema```, ```template```, ```terminology```, and ```valuerecommender```. 
 
 ==== Building and Running
 
