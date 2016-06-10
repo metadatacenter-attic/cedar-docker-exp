@@ -27,8 +27,8 @@ e.g.,
 
     docker run -d \
       -h cedar.metadatacenter.net -p 443:443 \
-      -v /Users/moconnor/workspace/cedar:/srv/cedar \
-      -v /Users/moconnor/workspace/conf/certificates/metadatacenter.net:/srv/certificates \
+      -v /Users/bob/workspace/cedar:/srv/cedar \
+      -v /Users/bob/private/certificates/metadatacenter.net:/srv/certificates \
       --name cedar-nginx metadatacenter/cedar-nginx:0.1.0
 
 To see that the container is running:
