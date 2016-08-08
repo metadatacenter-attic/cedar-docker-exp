@@ -1,4 +1,3 @@
-# Version: 0.1.0
 
 # TODO Need to pick specific version of CentOS
 FROM centos:latest
@@ -23,6 +22,7 @@ VOLUME [ ${CEDAR_HOME} ]
 
 # Mount a volume containing the host SSL certificates
 # The -h flag should be given to the container with a host matching the certificate
+# and for subdomains: auth, folder, repo, resource, schema, template, terminology, valuerecommender
 VOLUME [ ${CEDAR_CERTIFICATES_PATH} ]
 
 #Install Nginx

@@ -18,7 +18,7 @@ To run:
     docker run -d 
       -h <host name> -p 443:443 
       -v <CEDAR source directory>:/srv/cedar 
-      -v <host SSL certificates>:/srv/certificates 
+      -v <host SSL certificates directory>:/srv/certificates 
       --name cedar-nginx metadatacenter/cedar-nginx-server:0.1.0
 
 The host name must have matching SSL certificates in the ```host SSL certificates``` directory. 
@@ -36,7 +36,8 @@ To see that the container is running:
     docker ps
 
 Use DOCKER_HOST environment variable to find the Docker server IP address and map the host name to this 
-IP address in the host machine's ```/etc/hosts/``` file.
+IP address in the host machine's ```/etc/hosts/``` file. (The SSL layer is expecting a host name
+matching the certificate so a raw IP address will not work.)
 
 To test connectivity to the Nginx server in the container:
 
