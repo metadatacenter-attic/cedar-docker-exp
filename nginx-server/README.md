@@ -5,7 +5,8 @@ This Docker container runs CEDAR's Nginx server. The host machine must have a di
 containing the CEDAR code base and a directory containing SSL certificates, both
 of which are mounted as volumes by the container when it runs. The SSL
 certificates must match the ```cedar```-prepended host name given to the machine and also be 
-valid for the subdomains ```auth```, ```folder```, ```repo```, ```resource```, ```schema```, ```template```, ```terminology```, and ```valuerecommender```. 
+valid for the subdomains ```auth```, ```cedar```,```folder```, ```repo```, 
+```resource```, ```schema```, ```template```, ```terminology```, and ```valuerecommender```. 
 
 #### Building and Running
 
@@ -35,9 +36,9 @@ To see that the container is running:
 
     docker ps
 
-Use DOCKER_HOST environment variable to find the Docker server IP address and map the host name to this 
-IP address in the host machine's ```/etc/hosts/``` file. (The SSL layer is expecting a host name
-matching the certificate so a raw IP address will not work.)
+Use the ```DOCKER_HOST``` environment variable to find the Docker server IP address and map the host name to this 
+IP address in the host machine's ```/etc/hosts/``` file. 
+(The SSL layer is expecting a host name matching the certificate so a raw IP address will not work.)
 
 To test connectivity to the Nginx server in the container:
 
