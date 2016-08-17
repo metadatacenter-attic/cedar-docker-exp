@@ -1,12 +1,16 @@
 CEDAR Nginx Docker Container
 ============================
 
-This Docker container runs CEDAR's Nginx server. The host machine must have a directory
-containing the CEDAR code base and a directory containing SSL certificates, both
-of which are mounted as volumes by the container when it runs. The SSL
-certificates must match the ```cedar```-prepended host name given to the machine and also be 
+This Docker container runs CEDAR's Nginx server. 
+
+The Nginx server is configured to use SSL so the containter must be supplied with certificates
+that correspond to the domain and relevant CEDAR subdomains that are assigned to the container.
+The container mounts a volume that maps to a host directory containing these certificates. 
+The SSL certificates must match the ```cedar```-prepended host name given to the machine and also be 
 valid for the subdomains ```auth```, ```cedar```,```folder```, ```repo```, 
 ```resource```, ```schema```, ```template```, ```terminology```, and ```valuerecommender```. 
+
+As present, the container also mounts a source directory containing the CEDAR code base.
 
 #### Building and Running
 
