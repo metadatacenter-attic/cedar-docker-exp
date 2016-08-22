@@ -2,7 +2,8 @@
 # NOTE Not yet set up for HTTPS
 #
 # This sets up the CEDAR front end using the development server on port 4200,
-# with the live reload port is on 35729.
+# with the live reload port on 35729. The CEDAR_HOST variable passed to container
+# indicates the host running the CEDAR back end.
 # 
 # To build this Docker container:
 #
@@ -14,9 +15,9 @@
 #   -e CEDAR_TEST_USER='XXX' -e CEDAR_TEST_PASSWORD='XXX' \
 #   --name cedar-template-editor metadatacenter/cedar-template-editor:0.5.6
 #
-# To access web site go to browser and enter:
+# To access the web application go to a browser and enter:
 #
-#   http://${DOCKER_HOST}/4200
+#   http://${DOCKER_HOST}:4200
 #
 # To look at logs:
 #
